@@ -16,6 +16,12 @@ iptables --policy OUTPUT DROP
 iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
 iptables -A INPUT -p udp --sport 53 -j ACCEPT
 
+#iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+#iptables -A INPUT -p udp --sport 53 -j ACCEPT
+
+#iptables -A OUTPUT -p tcp -m multiport --dport 80 -j ACCEPT
+#iptables -A INPUT -p tcp -m multiport --sport 80 -j ACCEPT
+
 echo "net.ipv6.conf.all.disable_ipv6 = 1" >> /etc/sysctl.conf
 echo "net.ipv6.conf.default.disable_ipv6 = 1" >> /etc/sysctl.conf
 sysctl -p
