@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export DEBIAN_FRONTEND=noninteractive
+sudo apt update && sudo apt upgrade -y
+sudo apt install apache2 certbot python3-certbot-apache  -y
+sudo a2enmod ssl
+sudo systemctl start apache2
+
+sudo certbot --apache --register-unsafely-without-email -n --agree-tos -d {{domain}}
